@@ -16,11 +16,11 @@ namespace TechJobsConsole
 
             // Column options
             Dictionary<string, string> columnChoices = new Dictionary<string, string>();
-            columnChoices.Add("core competency", "Skill");
-            columnChoices.Add("employer", "Employer");
-            columnChoices.Add("location", "Location");
-            columnChoices.Add("position type", "Position Type");
-            columnChoices.Add("all", "All");
+            columnChoices.Add("core competency", "𝐒𝐤𝐢𝐥𝐥");
+            columnChoices.Add("employer", "𝔼𝕞𝕡𝕝𝕠𝕪𝕖𝕣");
+            columnChoices.Add("location", "𝕷𝖔𝖈𝖆𝖙𝖎𝖔𝖓");
+            columnChoices.Add("position type", "🄿🄾🅂🄸🅃🄸🄾🄽 🅃🅈🄿🄴");
+            columnChoices.Add("all", "𝔸𝕝𝕝");
 
             Console.WriteLine("Welcome to LaunchCode's TechJobs App!");
 
@@ -36,6 +36,8 @@ namespace TechJobsConsole
 
                     if (columnChoice.Equals("all"))
                     {
+
+
                         PrintJobs(JobData.FindAll());
                     }
                     else
@@ -58,12 +60,14 @@ namespace TechJobsConsole
                     Console.WriteLine("\nSearch term: ");
                     string searchTerm = Console.ReadLine();
 
+
                     List<Dictionary<string, string>> searchResults;
 
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        PrintJobs(JobData.FindAll());
+                        //Console.WriteLine("Search all fields not yet implemented.");
                     }
                     else
                     {
@@ -118,7 +122,32 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("PrintJobs is not implemented yet");
+            //Console.WriteLine("PrintJobs is not implemented yet");
+
+            if (someJobs.Count > 0)
+            {
+                foreach (Dictionary<string, string> job in someJobs)
+                {
+
+                    foreach (KeyValuePair<string, string> item in job)
+                    {
+
+                        Console.WriteLine("{0}: {1}", item.Key, item.Value);
+
+                    }
+
+                    Console.WriteLine("********************");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("ℕ𝕠 𝕣𝕖𝕤𝕦𝕝𝕥𝕤 𝕗𝕠𝕦𝕟𝕕 𝕞𝕒𝕥𝕔𝕙 𝕪𝕠𝕦𝕣 𝕤𝕖𝕒𝕣𝕔𝕙 𝕥𝕖𝕣𝕞");
+
+            }
+
         }
+
+
     }
 }
